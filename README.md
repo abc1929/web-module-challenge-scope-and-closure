@@ -67,7 +67,7 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
-- A closure would spawn whenever a function is stored into a variable. The functional personalDice would return a closure, so there would be a closure for dansRoll and a closure for zoesRoll.
+- A closure would spawn whenever a function is stored into a variable. The function personalDice would return a closure when called, so there would be a closure for dansRoll and a closure for zoesRoll.
 
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
 - The content stored within `dansRoll` remains the same, which is a closure. On the other hand, the result from calling `dansRoll` could certainly change, since the execution involves a `Math.random()` call that might result to 6 different numbers.
