@@ -26,10 +26,11 @@ console.log(createBase(7)(5)) //returns 12
 // FP
 // Pure functional programming has no side effect and no mutability. In a sense, if you ensure the logic of your code transforming your input to your desired output and it runs/compiles, not much can go wrong.
 
-// No loops. We write recursions instead of loops in pure functional code. It is more natural to write if what we write is more akin to a pattern that we want to repeat over different scales. While procedural loops are more akin to a set of procedures to repeat. Though you probably always can transmute one style to another, there are certain stuff that are simpler to write in loops and vice versa. 
+// No loops. We write recursions instead of loops in pure functional code. It is more natural to write if what we write is more akin to a pattern that we want to repeat over different scales. While procedural loops are more akin to a set of procedures to repeat. Though you probably can transmute one style to another most of the times, there are certain stuff that are simpler to write in loops and vice versa. 
 // The advantage of no loops includes immutability, when you use recursion, usually all the in betweens are ephemeral and lives on the stack, so you only think about input and output, and there wouldn't be any side effect.
 
-// Immutability. You probably don't need to declare any variable in a pure functional style. You would think in terms of inputs and outputs in terms of functions transforming data and linking functions together. Still, no mutable variables means no side effect, and more deterministic behavior.
+// Immutability and no side effect. You probably don't need to declare any variable in a pure functional style. You would think in terms of inputs and outputs and in terms of functions transforming data and linking functions together. Still, no mutable variables means no side effect, and more deterministic behavior.
+
 
 
 // OO

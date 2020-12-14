@@ -62,8 +62,8 @@ function counter2() {
 
 
 // 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better?  
-// > counter1 would be preferable if we want to implement something persistent that is mutable, in this case, it accurately represent a counter that return one more than the last time it was ran. 
-// > counter2 does not use a closure, and if we don't really need a closure to accomplish something, there probably isn't any need to use it. For example, if you just want to encapsulate some procedures as a function you can call later, you certainly don't a closure. So it really depends. Though here, counter2 doesn't do the job of a counter.
+// > counter1 would be preferable if we want to implement something persistent that is mutable, in this case, it accurately represents a counter that returns one more than the last time it was ran. 
+// > counter2 does not use a closure, and if we don't really need a closure to accomplish something, there probably isn't any need to use it. For example, if you just want to encapsulate some procedures as a function you can call later, you certainly don't need a closure, say some mathematical calculations. So it really depends. Nevertheless, here, counter2 doesn't really do the job of a counter.
      
 
 
