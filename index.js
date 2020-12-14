@@ -52,6 +52,21 @@ function counter2() {
   return count++;
 }
 
+// ANSWER:
+// 1. What is the difference between counter1 and counter2?
+// > counter1 returns a closure that includes the function counter() as well as the persistent variable count. counter2 returns 1 everytime.
+
+// 2. Which of the two uses a closure? How can you tell?
+// > Only counter1 has a closure, counter2 does not.
+// > We know this because counter1 is storing the value of counterMaker(), which is a function counter() bundled with the persistent variable count within that environment, which is a closure.
+
+
+// 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better?  
+// > counter1 would be preferable if we want to implement something persistent that is mutable, in this case, it accurately represent a counter that return one more than the last time it was ran. 
+// > counter2 does not use a closure, and if we don't really need a closure to accomplish something, there probably isn't any need to use it. For example, if you just want to encapsulate some procedures as a function you can call later, you certainly don't a closure. So it really depends. Though here, counter2 doesn't do the job of a counter.
+     
+
+
 
 /* ⚾️⚾️⚾️ Task 2: inning() ⚾️⚾️⚾️
 Use the inning function below to do the following:
@@ -62,8 +77,8 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
+function inning() {
+  return Math.floor(Math.random() * 3);
 }
 
 
@@ -81,8 +96,15 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*code Here*/){
-  /*Code Here*/
+function finalScore(callback, num) {
+  let home = 0;
+  let away = 0;
+  //  for each inning, both teams have the ability to score.
+  for (let i = 0; i < num; i++) {
+    home += callback();
+    away += callback();
+  }
+  return { Home: home, Away: away };
 }
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
@@ -90,8 +112,8 @@ Use the getInningScore() function below to do the following:
   1. Receive a callback function - you will pass in the inning function from task 2 as your argument 
   2. Return an object with a score for home and a score for away that populates from invoking the inning callback function */
 
-function getInningScore(/*Your Code Here */) {
-  /*Your Code Here */
+function getInningScore(callback) {
+  return { Home: callback(), Away: callback() };
 }
 
 
@@ -136,8 +158,26 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(getInningScorecb, inningcb, innings) {
+  const scores = [0, 0]; //we need this store to print finalscore, format: scores[away,home]
+  const result = []; //stores the array of strings
+
+  for (let i = 0; i < innings; i++) {
+    const currentround = getInningScorecb(inningcb);
+    scores[0] += currentround["Away"];
+    scores[1] += currentround["Home"];
+    result.push(
+      `Inning ${i+1}: Away ${currentround["Away"]} - Home ${currentround["Home"]}`
+    );
+  }
+  if (scores[0] === scores[1]) {
+    result.push(
+      `This game will require extra innings: Away ${scores[0]} - Home ${scores[1]}`
+    );
+  } else {
+    result.push(`Final Score: Away ${scores[0]} - Home ${scores[1]}`);
+  }
+  return result;
 }
 
 

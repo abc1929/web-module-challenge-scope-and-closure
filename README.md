@@ -43,6 +43,9 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+- A closure is a data ensemble that holds a execution environment for a function. Its content can have variables that are scoped to this function as well as other functions that are nested within this function. 
+
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -64,9 +67,13 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
-b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
-c. What is the lexical scope of `newRoll`? 
+- A closure would spawn whenever a function is stored into a variable. The functional personalDice would return a closure, so there would be a closure for dansRoll and a closure for zoesRoll.
 
+b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+- The content stored within `dansRoll` remains the same, which is a closure. On the other hand, the result from calling `dansRoll` could certainly change, since the execution involves a `Math.random()` call that might result to 6 different numbers.
+
+c. What is the lexical scope of `newRoll`? 
+- A `newRoll` only exists everytime `dansRoll` or `zoesRoll` is called, meaning that it is restricted to the function that is returned by `personalDice()`. So only within that function you can use this variable.
 
 ### Task 3 - Stretch Goals
 
